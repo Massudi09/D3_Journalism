@@ -57,8 +57,7 @@ function YAxisRender(newYScale, y_axis) {
     return y_axis;
 }
 
-//function used for updating circles group with a transition to new circles
-//for change in x axis or y axis
+//function: update circles data with transition 
 function renderCircles(circlesGroup, newXScale, chosen_xAxis, newYScale, chosen_yAxis) {
 
     circlesGroup.transition()
@@ -69,7 +68,7 @@ function renderCircles(circlesGroup, newXScale, chosen_xAxis, newYScale, chosen_
     return circlesGroup;
 }
 
-//function used for updating state labels with a transition to new 
+//function: update state labels with a transition to new 
 function renderText(textGroup, newXScale, chosen_xAxis, newYScale, chosen_yAxis) {
 
     textGroup.transition()
@@ -79,43 +78,43 @@ function renderText(textGroup, newXScale, chosen_xAxis, newYScale, chosen_yAxis)
 
     return textGroup;
 }
-//function to stylize x-axis values for tooltips
+//function: X axis style tooltip
 function styleX(value, chosen_xAxis) {
 
-    //stylize based on variable chosen
-    //poverty percentage
+    //style update upon label selection
+    //poverty
     if (chosen_xAxis === 'poverty') {
         return `${value}%`;
     }
-    //household income in dollars
+    //income
     else if (chosen_xAxis === 'income') {
         return `$${value}`;
     }
-    //age (number)
+    //age 
     else {
         return `${value}`;
     }
 }
 
-// function used for updating circles group with new tooltip
+// function: update circles with new tooltip
 function updateToolTip(chosen_xAxis, chosen_yAxis, circlesGroup) {
 
     //select x label
-    //poverty percentage
+    //poverty
     if (chosen_xAxis === 'poverty') {
         var xLabel = "Poverty:";
     }
-    //household income in dollars
+    //household income 
     else if (chosen_xAxis === 'income') {
         var xLabel = "Median Income:";
     }
-    //age (number)
+    //age
     else {
         var xLabel = "Age:";
     }
 
     //select y label
-    //percentage lacking healthcare
+    //percentage without healthcare
     if (chosen_yAxis === 'healthcare') {
         var yLabel = "No Healthcare:"
     }
@@ -145,7 +144,7 @@ function updateToolTip(chosen_xAxis, chosen_yAxis, circlesGroup) {
     return circlesGroup;
 }
 
-//retrieve csv data and execute everything below
+//retrieve csv data & excute script...
 d3.csv("./assets/data/data.csv").then(function(censusDB) {
 
     console.log(censusDB);
